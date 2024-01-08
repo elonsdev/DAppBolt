@@ -24,6 +24,7 @@
     "lucide": "^0.295.0",
     "lucide-react": "^0.295.0",
     "next": "14.0.4",
+    "op-wagmi": "^0.2.3",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.1.0",

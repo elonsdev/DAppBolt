@@ -20,6 +20,7 @@ import { Label } from "../components/ui/label";
 import Image from "next/image";
 import { DepositInfo } from "../components/depositinfo";
 import { ExportWalletInfo } from "../components/exportwalletinfo";
+import { WithdrawInfo } from "../components/withdrawinfo";
 
 export default function Wallet() {
   const disconnect = useDisconnect();
@@ -78,12 +79,7 @@ export default function Wallet() {
       <div className='bg-zinc-900 h-[1px]  w-screen' />
       <div className='w-full grid grid-cols-2 gap-2 mb-5'>
         <DepositInfo />
-        <div className='flex flex-col items-center justify-center'>
-          <div className='rounded-full bg-violet-300 m-2 p-4 '>
-            <Send className='text-black' />
-          </div>
-          <p className='text-sm text-neutral-300'>Withdraw</p>
-        </div>
+        <WithdrawInfo />
       </div>
       <div className='bg-zinc-900 h-[1px] w-screen' />
       <div className='flex flex-col gap-5 '>
