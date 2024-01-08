@@ -36,19 +36,14 @@ export const Footer = () => {
         />
       </Link>
 
-      <div className='flex justify-center py-3 border-zinc-900 border items-center'>
-        <ConnectWallet
-          detailsBtn={() => {
-            return (
-              <Wallet
-                className={`w-6 h-6 ${
-                  isCurrentPage("/wallet") && "text-indigo-300"
-                }`}
-              />
-            );
-          }}
+      <Link
+        href='./wallet'
+        className='flex justify-center py-3 border-zinc-900 border items-center'
+      >
+        <Wallet
+          className={`w-6 h-6 ${isCurrentPage("/wallet") && "text-indigo-300"}`}
         />
-      </div>
+      </Link>
     </div>
   );
 };
