@@ -4,6 +4,12 @@ Add your own .env with a NEXT_PUBLIC_THIRDWEB_CLIENT_ID.
 
 Get your client id from [Thirdweb dashboard](https://thirdweb.com/dashboard/settings).
 
+## TODO:
+
+- create pwa manifests etc
+- create install to homescreen prompts depending on browser / device
+- finish up demo pages
+
 ## Getting Started
 
 First, run the development server:
