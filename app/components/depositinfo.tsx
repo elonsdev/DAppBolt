@@ -1,23 +1,32 @@
 import { Check, Info, Upload } from "lucide-react";
-import { Badge } from "./ui/badge";
+
 import { Button } from "./ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
-import { useAddress, useChain, useSwitchChain } from "@thirdweb-dev/react";
+
+import { useAddress } from "@thirdweb-dev/react";
 import { useState } from "react";
 
+import { Account } from "../lib/wagmi-account";
+import { WalletOptions } from "../lib/wallet-options";
+import { useAccount } from "wagmi";
+import { Profile } from "./profile";
+import { EthProfile } from "./profileeth";
+import { Input } from "./ui/input";
+
+function ConnectWallet() {
+  const { isConnected } = useAccount();
+  if (isConnected) return <Account />;
+  return <WalletOptions />;
+}
+
 export function DepositInfo() {
-  const chain = useChain();
-  const switchChain = useSwitchChain();
   const address = useAddress();
 
   const [copied, setCopied] = useState(false);
@@ -47,14 +56,45 @@ export function DepositInfo() {
       </DialogTrigger>
       <DialogContent className='rounded-3xl'>
         <DialogHeader>
-          <DialogTitle>Deposit ETH</DialogTitle>
+          <DialogTitle>Deposit</DialogTitle>
           <DialogDescription>
             Deposit ETH into your DappBolt account.
           </DialogDescription>
         </DialogHeader>
 
         <div className='w-full'>
-          <Button className='w-full rounded-full'>From an ETH Wallet</Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className='w-full rounded-full'>
+                From ETH Blockchain
+              </Button>
+            </DialogTrigger>
+            <DialogContent className='rounded-3xl'>
+              <DialogHeader>
+                <DialogTitle>Deposit ETH</DialogTitle>
+                <DialogDescription>
+                  Deposit ETH from Ethereum into your DAppBolt account.
+                </DialogDescription>
+              </DialogHeader>
+
+              <div className='w-full flex flex-col gap-3'>
+                <Profile />
+
+                <EthProfile />
+
+                <div className='flex flex-col gap-1'>
+                  <Input className='rounded-full' placeholder='Amount' />
+                  <p className='self-end text-sm text-neutral-500'>
+                    Balance: 0 ETH
+                  </p>
+                </div>
+              </div>
+
+              <div className='w-full'>
+                <ConnectWallet />
+              </div>
+            </DialogContent>
+          </Dialog>
           <p className='text-xs text-neutral-500 mt-1'>
             Visit https://dappbolt.io/wallet and login on any device that has an
             external wallet installed.
@@ -68,11 +108,12 @@ export function DepositInfo() {
                 <Check className='w-4 h-4' />
               </span>
             ) : (
-              <span>From a BASE Wallet</span>
+              <span>From BASE Blockchain</span>
             )}
           </Button>
           <p className='text-xs text-neutral-500 mt-1'>
-            Transfer ETH on the Base Network to fund your DappBolt wallet.
+            Transfer ETH on the BASE Network to fund your DappBolt wallet
+            address.
           </p>
         </div>
         <Button disabled className='rounded-full'>

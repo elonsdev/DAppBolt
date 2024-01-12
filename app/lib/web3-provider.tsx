@@ -13,7 +13,7 @@ import {
   useSetIsWalletModalOpen,
 } from "@thirdweb-dev/react";
 
-import { Base, BaseGoerli } from "@thirdweb-dev/chains";
+import { Base, BaseGoerli, BaseSepoliaTestnet } from "@thirdweb-dev/chains";
 
 import { Button } from "../components/ui/button";
 import { ArrowBigLeft, Dices, Zap } from "lucide-react";
@@ -27,8 +27,8 @@ export default function Web3Provider({
 }) {
   return (
     <ThirdwebProvider
-      activeChain={BaseGoerli}
-      supportedChains={[BaseGoerli, Base]}
+      activeChain={BaseSepoliaTestnet}
+      supportedChains={[BaseSepoliaTestnet, Base]}
       clientId={process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID}
       locale={en()}
       supportedWallets={[

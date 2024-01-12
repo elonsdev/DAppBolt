@@ -21,41 +21,17 @@ import Image from "next/image";
 import { DepositInfo } from "../components/depositinfo";
 import { ExportWalletInfo } from "../components/exportwalletinfo";
 import { WithdrawInfo } from "../components/withdrawinfo";
+import { Profile } from "../components/profile";
 
 export default function Wallet() {
   const disconnect = useDisconnect();
-  const address = useAddress();
-  const chain = useChain();
-  const walletInstance = useWallet() as any;
-  console.log(walletInstance);
+
   const { data, isLoading } = useBalance(NATIVE_TOKEN_ADDRESS);
-
-  const walletConfig = useWalletConfig();
-
-  console.log(walletConfig);
-  console.log(data);
 
   return (
     <main className='flex min-h-screen flex-col items-center justify-between pb-20 px-4 pt-16'>
       <div className='w-full grid grid-cols-3 gap-2'>
-        <div className='col-span-2 flex gap-3  items-center'>
-          <Avatar className='w-16 h-16 border '>
-            <AvatarImage
-              src={`https://api.dicebear.com/7.x/thumbs/svg?seed=${address}&scale=75&shapeColor=c4b5fd&backgroundColor=transparent&mouthColor=000000&eyesColor=000000`}
-            />
-
-            <AvatarFallback>test</AvatarFallback>
-          </Avatar>
-          <div className=' flex flex-col  gap-1 text-neutral-300'>
-            <h4>
-              {walletConfig?.meta.name}
-              {walletInstance?.connector.id === "local_walle" && "Guest"}
-            </h4>
-            <p className='text-sm'>
-              {address?.slice(0, 5)}...{address?.slice(-5)}
-            </p>
-          </div>
-        </div>
+        <Profile />
         <div className=' '>
           <WalletInfo />
           {data && (

@@ -1,4 +1,4 @@
-import { Check, Info } from "lucide-react";
+import { Info } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import {
@@ -10,30 +10,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
-import { useAddress, useChain, useSwitchChain } from "@thirdweb-dev/react";
-import { useState } from "react";
+
+import { useChain, useSwitchChain } from "@thirdweb-dev/react";
 
 export function WalletInfo() {
   const chain = useChain();
   const switchChain = useSwitchChain();
-  const address = useAddress();
-
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard
-      .writeText(address!)
-      .then(() => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000); // Remove "Copied!" message after 2 seconds
-      })
-      .catch((err) => {
-        console.error("Failed to copy address:", err);
-        // Handle copy failure, e.g., display an error message
-      });
-  };
 
   return (
     <Dialog>
@@ -92,7 +74,7 @@ export function WalletInfo() {
         <DialogFooter>
           <Button
             className='rounded-full'
-            onClick={() => switchChain(chain?.testnet ? 8453 : 84531)}
+            onClick={() => switchChain(chain?.testnet ? 8453 : 84532)}
           >
             {chain?.testnet ? "Switch to BASE Mainnet" : "Switch to Testnet"}
           </Button>
