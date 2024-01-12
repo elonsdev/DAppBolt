@@ -29,7 +29,7 @@ export default function Wallet() {
   const { data, isLoading } = useBalance(NATIVE_TOKEN_ADDRESS);
 
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between pb-20 px-4 pt-16'>
+    <main className='flex min-h-screen flex-col items-center justify-between md:justify-normal md:gap-10 pb-20 px-4 pt-20 max-w-lg mx-auto'>
       <div className='w-full grid grid-cols-3 gap-2'>
         <Profile />
         <div className=' '>
@@ -52,13 +52,13 @@ export default function Wallet() {
           )}
         </div>
       </div>
-      <div className='bg-zinc-900 h-[1px]  w-screen' />
-      <div className='w-full grid grid-cols-2 gap-2 mb-5'>
+      <div className='bg-zinc-900 h-[1px]  w-full' />
+      <div className='w-full grid grid-cols-2  mb-5'>
         <DepositInfo />
         <WithdrawInfo />
       </div>
-      <div className='bg-zinc-900 h-[1px] w-screen' />
-      <div className='flex flex-col gap-5 '>
+      <div className='bg-zinc-900 h-[1px] w-full' />
+      <div className='flex flex-col md:flex-row gap-5 md:gap-20'>
         <ExportWalletInfo />
 
         <Button
