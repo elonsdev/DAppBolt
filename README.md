@@ -1,14 +1,28 @@
-This is a [Next.js](https://nextjs.org/) adapted for a web3 PWA using Thirdweb.
+This is a [Next.js](https://nextjs.org/) adapted for a web3 PWA using Thirdweb made for BASE blockchain dapps.
 
 Add your own .env with a NEXT_PUBLIC_THIRDWEB_CLIENT_ID.
 
 Get your client id from [Thirdweb dashboard](https://thirdweb.com/dashboard/settings).
+
+## FEATURES:
+
+- Embedded Wallets (Powered by Thirdweb)
+- Simple Signup with Google/Apple/Guest
+- Easily Deposit ETH from connected wallets / Base wallets / Credit cards
+- Withdraw to another BASE wallet
+- Export Private key
+- Demo blockchain action
+- Demo Pages
+- Privacy Policy
 
 ## TODO:
 
 - create pwa manifests etc
 - create install to homescreen prompts depending on browser / device
 - finish up demo pages
+- deposit function using op-wagmi
+- withdraw function (simple transfer using thirdweb button)
+- finish demo blockchain action
 
 ## Getting Started
 
