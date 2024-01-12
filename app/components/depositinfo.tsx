@@ -15,7 +15,7 @@ import { useState } from "react";
 
 import { Account } from "../lib/wagmi-account";
 import { WalletOptions } from "../lib/wallet-options";
-import { useAccount } from "wagmi";
+import { useAccount, useEnsName } from "wagmi";
 import { Profile } from "./profile";
 import { EthProfile } from "./profileeth";
 import { Input } from "./ui/input";
@@ -65,7 +65,7 @@ export function DepositInfo() {
         <div className='w-full'>
           <Dialog>
             <DialogTrigger asChild>
-              <Button className='w-full rounded-full'>
+              <Button className='w-full rounded-full bg-violet-300'>
                 From ETH Blockchain
               </Button>
             </DialogTrigger>
@@ -90,8 +90,11 @@ export function DepositInfo() {
                 </div>
               </div>
 
-              <div className='w-full'>
+              <div className='w-full flex flex-col gap-2'>
                 <ConnectWallet />
+                <p className='text-center text-sm text-neutral-400'>
+                  DAppBolt balance: 0 ETH
+                </p>
               </div>
             </DialogContent>
           </Dialog>
@@ -101,7 +104,10 @@ export function DepositInfo() {
           </p>
         </div>
         <div className='w-full'>
-          <Button onClick={handleCopy} className='w-full rounded-full'>
+          <Button
+            onClick={handleCopy}
+            className='w-full rounded-full bg-violet-300'
+          >
             {copied ? (
               <span className='ml-2 text-green-900 flex gap-2 items-center'>
                 Copied {address?.slice(0, 5)}...{address?.slice(-5)}

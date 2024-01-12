@@ -19,7 +19,11 @@ export function WalletOptions() {
   );
 
   return filteredConnectors.map((connector) => (
-    <Button key={connector.uid} onClick={() => connect({ connector })}>
+    <Button
+      className='rounded-full bg-violet-300'
+      key={connector.uid}
+      onClick={() => connect({ connector })}
+    >
       {connector.name}
     </Button>
   ));
