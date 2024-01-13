@@ -12,7 +12,7 @@ export const EthProfile = () => {
         <AvatarFallback>eth</AvatarFallback>
       </Avatar>
       <div className=' flex flex-col  gap-1 text-neutral-300'>
-        <h4>{address ? `Connected Wallet` : `From Ethereum Mainnet`} </h4>
+        <h4>{address ? `From Connected Wallet` : `From Ethereum Mainnet`} </h4>
         <p className='text-sm'>
           {address ? (
             <>

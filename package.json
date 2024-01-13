@@ -11,6 +11,7 @@
   "dependencies": {
     "@dicebear/collection": "^7.0.1",
     "@dicebear/core": "^7.0.1",
+    "@eth-optimism/sdk": "^3.1.8",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-label": "^2.0.2",
@@ -26,6 +27,7 @@
     "lucide": "^0.295.0",
     "lucide-react": "^0.295.0",
     "next": "14.0.4",
+    "op-wagmi": "^0.2.3",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.1.0",

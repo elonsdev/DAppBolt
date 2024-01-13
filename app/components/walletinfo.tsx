@@ -74,7 +74,7 @@ export function WalletInfo() {
         <DialogFooter>
           <Button
             className='rounded-full'
-            onClick={() => switchChain(chain?.testnet ? 8453 : 84532)}
+            onClick={() => switchChain(chain?.testnet ? 8453 : 84531)}
           >
             {chain?.testnet ? "Switch to BASE Mainnet" : "Switch to Testnet"}
           </Button>
