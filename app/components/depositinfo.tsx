@@ -34,9 +34,9 @@ import { Input } from "./ui/input";
 import { config } from "../lib/config";
 import Link from "next/link";
 
-function ConnectWallet() {
+function ConnectWallet(depositAmount: number) {
   const { isConnected } = useAccount();
-  if (isConnected) return <Account />;
+  if (isConnected) return <Account depositAmount={depositAmount} />;
   return <WalletOptions />;
 }
 
@@ -163,7 +163,7 @@ export function DepositInfo() {
                 </div>
 
                 <div className='w-full flex flex-col gap-2'>
-                  <ConnectWallet />
+                  <ConnectWallet depositAmount={depositAmount} />
                   <p className='text-center text-sm text-neutral-400'>
                     DAppBolt balance: {balance?.displayValue} ETH
                   </p>

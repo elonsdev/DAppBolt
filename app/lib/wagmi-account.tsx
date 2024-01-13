@@ -8,10 +8,12 @@ import {
 import abi from "./abi.json";
 import { Button } from "../components/ui/button";
 
-export function Account() {
+export function Account({ depositAmount }: any) {
   const { disconnect } = useDisconnect();
 
   const { data: hash, isPending, writeContract } = useWriteContract();
+
+  console.log(depositAmount.depositAmount);
 
   const depositer = async () => {
     console.log("deposit");
@@ -31,7 +33,7 @@ export function Account() {
         },
       ],
       functionName: "depositETHTo",
-      value: BigInt(100000000000000000),
+      value: BigInt(depositAmount.depositAmount * 1000000000000000000),
       args: ["0xb249E162ed44061b195Ed72C3353563A5101d1a1", 0, ""],
     });
   };
@@ -50,15 +52,25 @@ export function Account() {
       >
         {isPending ? "Confirming..." : "Deposit"}
       </Button>
-      {hash && <div>Transaction Hash: {hash}</div>}
-      {isConfirming && <div>Waiting for confirmation...</div>}
-      {isConfirmed && <div>Transaction confirmed.</div>}
+
       <Button
         className='rounded-full bg-neutral-400'
         onClick={() => disconnect()}
       >
         Disconnect Connected Wallet
       </Button>
+
+      {isConfirming && (
+        <div className='text-neutral-400 text-sm text-center'>
+          Waiting for confirmation...
+        </div>
+      )}
+      {isConfirmed && (
+        <div className='text-neutral-400 text-sm'>
+          Transaction confirmed. Your ETH will be deposited in a few minutes.
+          You may close this window while waiting for your deposit.
+        </div>
+      )}
     </div>
   );
 }
