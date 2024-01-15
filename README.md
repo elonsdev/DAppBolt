@@ -11,7 +11,6 @@ Get your client id from [Thirdweb dashboard](https://thirdweb.com/dashboard/sett
 - Easily Deposit ETH from connected wallets / Base wallets / Credit cards
 - Withdraw to another BASE wallet
 - Export Private key
-- Demo blockchain action
 - Demo Pages
 - Privacy Policy
 
@@ -19,8 +18,6 @@ Get your client id from [Thirdweb dashboard](https://thirdweb.com/dashboard/sett
 
 - create pwa manifests etc
 - create install to homescreen prompts depending on browser / device
-- finish up demo pages
-- finish demo blockchain action
 - deposit with credit card
 
 ## Getting Started

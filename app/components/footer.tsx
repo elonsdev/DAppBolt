@@ -38,32 +38,19 @@ export const Footer = () => {
             Dashboard
           </p>
         </Link>
-        <Link href='./chat' className='flex  gap-2  items-center'>
-          <MessagesSquare
-            className={`w-6 h-6 ${
-              isCurrentPage("/chat") ? "text-indigo-300" : "text-neutral-300"
-            }`}
-          />
-          <p
-            className={` text-lg font-semibold ${
-              isCurrentPage("/chat") ? "text-indigo-300" : "text-neutral-300"
-            }`}
-          >
-            Chat
-          </p>
-        </Link>
+
         <Link href='./info' className='flex  gap-2  items-center'>
           <Info
             className={`w-6 h-6 ${
-              isCurrentPage("/about") ? "text-indigo-300" : "text-neutral-300"
+              isCurrentPage("/info") ? "text-indigo-300" : "text-neutral-300"
             }`}
           />
           <p
             className={` text-lg font-semibold ${
-              isCurrentPage("/about") ? "text-indigo-300" : "text-neutral-300"
+              isCurrentPage("/info") ? "text-indigo-300" : "text-neutral-300"
             }`}
           >
-            About
+            Info
           </p>
         </Link>
         <Link href='./wallet' className='flex  gap-2  items-center'>
@@ -82,13 +69,13 @@ export const Footer = () => {
         </Link>
       </div>
       <Link
-        href='https://elons.dev'
+        href='https://x.com/elonsdev'
         className='text-neutral-600 
         absolute bottom-5 left-5 hidden md:block'
       >
         built by @elonsdev
       </Link>
-      <div className='fixed bottom-0 left-0 grid grid-cols-4  w-full items-end justify-center bg-black md:hidden'>
+      <div className='fixed bottom-0 left-0 grid grid-cols-3  w-full items-end justify-center bg-black md:hidden'>
         <Link
           href='./'
           className='flex justify-center py-3 border-zinc-900 border items-center'
@@ -97,22 +84,13 @@ export const Footer = () => {
             className={`w-6 h-6 ${isCurrentPage("/") && "text-indigo-300"}`}
           />
         </Link>
+
         <Link
-          href='./chat'
-          className='flex justify-center py-3 border-zinc-900 border items-center'
-        >
-          <MessagesSquare
-            className={`w-6 h-6 ${isCurrentPage("/chat") && "text-indigo-300"}`}
-          />
-        </Link>
-        <Link
-          href='./about'
+          href='./info'
           className='flex justify-center py-3 border-zinc-900 border items-center'
         >
           <Info
-            className={`w-6 h-6 ${
-              isCurrentPage("/about") && "text-indigo-300"
-            }`}
+            className={`w-6 h-6 ${isCurrentPage("/info") && "text-indigo-300"}`}
           />
         </Link>
 
