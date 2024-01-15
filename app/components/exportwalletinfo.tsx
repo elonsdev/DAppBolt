@@ -35,7 +35,9 @@ export function ExportWalletInfo() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className='bg-red-300 rounded-full px-10'>Export Wallet</Button>
+        <Button className='bg-red-300 hover:bg-red-200 rounded-full px-10 w-full'>
+          Export Wallet
+        </Button>
       </DialogTrigger>
       <DialogContent className='rounded-3xl'>
         <DialogHeader>

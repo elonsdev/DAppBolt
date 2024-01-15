@@ -20,7 +20,7 @@ export function WalletInfo() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Badge className='flex items-center gap-1 justify-center bg-violet-300 mb-1'>
+        <Badge className='flex  items-center gap-1 justify-center bg-violet-300 hover:bg-violet-200 mb-1 cursor-pointer'>
           {chain?.testnet ? "TESTNET" : "BASE"} <Info className='w-4 h-4' />
         </Badge>
       </DialogTrigger>
@@ -73,8 +73,8 @@ export function WalletInfo() {
         <div className=''></div>
         <DialogFooter>
           <Button
-            className='rounded-full'
-            onClick={() => switchChain(chain?.testnet ? 8453 : 84531)}
+            className='rounded-full w-full bg-violet-300 hover:bg-violet-200'
+            onClick={() => switchChain(chain?.testnet ? 8453 : 84532)}
           >
             {chain?.testnet ? "Switch to BASE Mainnet" : "Switch to Testnet"}
           </Button>

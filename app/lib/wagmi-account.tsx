@@ -9,8 +9,6 @@ import abi from "./abi.json";
 import { Button } from "../components/ui/button";
 
 export function Account({ depositAmount }: any) {
-  const { disconnect } = useDisconnect();
-
   const { data: hash, isPending, writeContract } = useWriteContract();
 
   console.log(depositAmount.depositAmount);
@@ -48,16 +46,9 @@ export function Account({ depositAmount }: any) {
       <Button
         onClick={depositer}
         disabled={isPending}
-        className='rounded-full bg-violet-300'
+        className='rounded-full bg-violet-300 hover:bg-violet-200'
       >
         {isPending ? "Confirming..." : "Deposit"}
-      </Button>
-
-      <Button
-        className='rounded-full bg-neutral-400'
-        onClick={() => disconnect()}
-      >
-        Disconnect Connected Wallet
       </Button>
 
       {isConfirming && (

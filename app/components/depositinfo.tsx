@@ -34,7 +34,7 @@ import { Input } from "./ui/input";
 import { config } from "../lib/config";
 import Link from "next/link";
 
-function ConnectWallet(depositAmount: number) {
+function ConnectWallet(depositAmount: any) {
   const { isConnected } = useAccount();
   if (isConnected) return <Account depositAmount={depositAmount} />;
   return <WalletOptions />;
@@ -73,11 +73,11 @@ export function DepositInfo() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className='flex flex-col items-center justify-center'>
-          <div className='rounded-full bg-violet-300 m-2 p-4 '>
+        <div className='flex flex-col items-center justify-center cursor-pointer'>
+          <div className='rounded-full bg-violet-300 hover:bg-violet-200 m-2 p-4 '>
             <Upload className='text-black' />
           </div>
-          <p className='text-sm text-neutral-300'>Deposit</p>
+          <p className='font-medium text-neutral-300'>Deposit</p>
         </div>
       </DialogTrigger>
       <DialogContent className='rounded-3xl'>
@@ -127,7 +127,7 @@ export function DepositInfo() {
           <div className='w-full'>
             <Dialog>
               <DialogTrigger asChild>
-                <Button className='w-full rounded-full bg-violet-300'>
+                <Button className='w-full rounded-full bg-violet-300 hover:bg-violet-200'>
                   From ETH Blockchain
                 </Button>
               </DialogTrigger>
@@ -178,7 +178,7 @@ export function DepositInfo() {
           <div className='w-full'>
             <Button
               onClick={handleCopy}
-              className='w-full rounded-full bg-violet-300'
+              className='w-full rounded-full bg-violet-300 hover:bg-violet-200'
             >
               {copied ? (
                 <span className='ml-2 text-green-900 flex gap-2 items-center'>
@@ -207,7 +207,7 @@ export function DepositInfo() {
 
         <DialogFooter>
           <Button
-            className='rounded-full w-full'
+            className='rounded-full w-full bg-neutral-300 hover:bg-neutral-200'
             onClick={() => switchChain(chain?.testnet ? 8453 : 84531)}
           >
             {chain?.testnet ? "Switch to BASE Mainnet" : "Switch to Testnet"}

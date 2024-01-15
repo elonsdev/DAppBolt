@@ -19,6 +19,7 @@ import { Button } from "../components/ui/button";
 import { ArrowBigLeft, Dices, Zap } from "lucide-react";
 import { PrivacyTerms } from "./privacy-terms";
 import { Footer } from "../components/footer";
+import Link from "next/link";
 
 export default function Web3Provider({
   children,
@@ -119,20 +120,16 @@ const Displayer = ({ children }: { children: React.ReactNode }) => {
   }
 
   if (connectionStatus === "connecting" || connectionStatus === "unknown") {
-    return <div>LOADING...</div>;
+    return (
+      <div className='w-screen h-screen flex justify-center items-center'>
+        <Zap className='w-20 h-20 animate-pulse text-violet-300' />
+      </div>
+    );
   }
 
   if (connectionStatus === "connected") {
     return (
       <>
-        <div className='fixed left-0 top-0 flex w-full justify-between border-b border-zinc-900 bg-gradient-to-b from-zinc-900 pb-2 md:pb-3 pt-2 md:pt-3 backdrop-blur-2xl px-3 '>
-          <div className='flex gap-1 items-center text-transparent  bg-clip-text bg-gradient-to-r from-indigo-300 to-pink-500 md:ml-6'>
-            <Zap className='w-5 h-5 rotate-12 text-indigo-300' />
-            <p className='text-xl font-extralight'>DApp</p>
-
-            <p className='text-xl font-semibold'>BOLT</p>
-          </div>
-        </div>
         {children} <Footer />
       </>
     );

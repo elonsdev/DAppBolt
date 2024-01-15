@@ -20,7 +20,7 @@ export function WalletOptions() {
 
   return filteredConnectors.map((connector) => (
     <Button
-      className='rounded-full bg-violet-300'
+      className='rounded-full bg-violet-300 hover:bg-violet-200'
       key={connector.uid}
       onClick={() => connect({ connector })}
     >

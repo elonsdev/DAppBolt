@@ -28,6 +28,8 @@ export default function Wallet() {
 
   const { data, isLoading } = useBalance(NATIVE_TOKEN_ADDRESS);
 
+  console.log(data);
+
   return (
     <main className='flex min-h-screen flex-col items-center justify-between md:justify-normal md:gap-10 pb-20 px-4 pt-20 max-w-lg mx-auto'>
       <div className='w-full grid grid-cols-3 gap-2'>
@@ -36,18 +38,20 @@ export default function Wallet() {
           <WalletInfo />
           {data && (
             <>
-              <div className='flex gap-1 items-center'>
+              <div className='flex gap-1 items-center justify-end'>
                 <Image
                   width={15}
                   height={10}
                   alt='chain logo'
                   src='/base-100.png'
                 />
-                <h4 className='text-neutral-400 font-semibold'>
-                  {data.displayValue} {data.symbol}{" "}
+                <h4 className='text-neutral-300 text-sm font-semibold'>
+                  {Number(data.displayValue).toFixed(4)} {data.symbol}{" "}
                 </h4>
               </div>
-              <p className='text-sm text-neutral-300'>Wallet Balance</p>{" "}
+              <p className='text-sm text-neutral-400 text-right'>
+                Wallet Balance
+              </p>{" "}
             </>
           )}
         </div>
@@ -58,11 +62,11 @@ export default function Wallet() {
         <WithdrawInfo />
       </div>
       <div className='bg-zinc-900 h-[1px] w-full' />
-      <div className='flex flex-col md:flex-row gap-5 md:gap-20'>
+      <div className='grid grid-cols-1 md:grid-cols-2  gap-5 md:gap-5 w-full'>
         <ExportWalletInfo />
 
         <Button
-          className='bg-violet-300 rounded-full px-10'
+          className='bg-violet-300 hover:bg-violet-200 rounded-full px-10 w-full'
           onClick={disconnect}
         >
           Log out

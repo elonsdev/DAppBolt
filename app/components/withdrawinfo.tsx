@@ -34,11 +34,11 @@ export function WithdrawInfo() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className='flex flex-col items-center justify-center'>
-          <div className='rounded-full bg-violet-300 m-2 p-4 '>
+        <div className='flex flex-col items-center justify-center cursor-pointer'>
+          <div className='rounded-full bg-violet-300 hover:bg-violet-200 m-2 p-4 '>
             <Send className='text-black' />
           </div>
-          <p className='text-sm text-neutral-300'>Withdraw</p>
+          <p className='font-medium text-neutral-300'>Withdraw</p>
         </div>
       </DialogTrigger>
       <DialogContent className='rounded-3xl'>
@@ -78,7 +78,7 @@ export function WithdrawInfo() {
                 amount: transferAmount,
               })
             }
-            className='mb-5 w-full rounded-full'
+            className='mb-5 w-full rounded-full bg-violet-300 hover:bg-violet-200'
           >
             {isLoadingTransfer ? "Withdrawing..." : "Withdraw"}
           </Button>

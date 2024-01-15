@@ -1,5 +1,7 @@
 import { useAddress, useWallet, useWalletConfig } from "@thirdweb-dev/react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { useState } from "react";
+import { Check } from "lucide-react";
 
 export const Profile = () => {
   const address = useAddress();
@@ -16,12 +18,12 @@ export const Profile = () => {
         <AvatarFallback>test</AvatarFallback>
       </Avatar>
       <div className=' flex flex-col  gap-1 text-neutral-300'>
-        <h4>
+        <h4 className='cursor-default'>
           {walletConfig?.meta.name}
           {walletInstance?.connector.id === "local_walle" && "Guest"}
         </h4>
-        <p className='text-sm'>
-          {address?.slice(0, 5)}...{address?.slice(-5)}
+        <p className='cursor-default'>
+          {address?.slice(0, 4)}...{address?.slice(-4)}
         </p>
       </div>
     </div>
