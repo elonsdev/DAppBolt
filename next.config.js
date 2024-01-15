@@ -1,19 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "api.dicebear.com",
-        port: "",
-        pathname: "/*",
-      },
-    ],
-  },
-};
-
-module.exports = {
-  images: {
     dangerouslyAllowSVG: true,
     remotePatterns: [
       {
@@ -25,3 +12,9 @@ module.exports = {
     ],
   },
 };
+
+const withPWA = require("next-pwa")({
+  dest: "public", // Destination directory for the PWA files
+});
+
+module.exports = withPWA(nextConfig);

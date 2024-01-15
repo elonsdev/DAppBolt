@@ -16,7 +16,6 @@ Get your client id from [Thirdweb dashboard](https://thirdweb.com/dashboard/sett
 
 ## TODO:
 
-- create pwa manifests etc
 - create install to homescreen prompts depending on browser / device
 - deposit with credit card
 
