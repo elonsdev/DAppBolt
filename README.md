@@ -20,7 +20,6 @@ Get your client id from [Thirdweb dashboard](https://thirdweb.com/dashboard/sett
 - create pwa manifests etc
 - create install to homescreen prompts depending on browser / device
 - finish up demo pages
-- withdraw function (simple transfer using thirdweb button)
 - finish demo blockchain action
 - deposit with credit card
 
