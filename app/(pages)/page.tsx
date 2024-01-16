@@ -4,6 +4,7 @@ import { Zap } from "lucide-react";
 
 import { NATIVE_TOKEN_ADDRESS, useBalance } from "@thirdweb-dev/react";
 import Image from "next/image";
+import { WalletInfo } from "../components/walletinfo";
 
 export default function Home() {
   const { data } = useBalance(NATIVE_TOKEN_ADDRESS);
@@ -17,8 +18,7 @@ export default function Home() {
           <p className='text-xl font-semibold'>BOLT</p>
         </div>
         {data && (
-          <div>
-            {" "}
+          <div className='flex items-center gap-2'>
             <div className='flex gap-1 items-center justify-end'>
               <Image
                 width={15}
@@ -30,6 +30,8 @@ export default function Home() {
                 {Number(data.displayValue).toFixed(4)}
               </h4>
             </div>
+
+            <WalletInfo />
           </div>
         )}
       </div>
