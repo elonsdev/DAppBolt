@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   ThirdwebProvider,
@@ -10,16 +10,23 @@ import {
   darkTheme,
   en,
   useConnectionStatus,
-  useSetIsWalletModalOpen,
 } from "@thirdweb-dev/react";
+
+import Bowser from "bowser";
 
 import { Base, BaseGoerli, BaseSepoliaTestnet } from "@thirdweb-dev/chains";
 
-import { Button } from "../components/ui/button";
-import { ArrowBigLeft, Dices, Zap } from "lucide-react";
+import {
+  ArrowBigLeft,
+  PlusSquare,
+  Share,
+  TabletSmartphone,
+  Zap,
+} from "lucide-react";
 import { PrivacyTerms } from "./privacy-terms";
 import { Footer } from "../components/footer";
 import Link from "next/link";
+import { Button } from "../components/ui/button";
 
 export default function Web3Provider({
   children,
@@ -47,6 +54,54 @@ export default function Web3Provider({
 }
 
 const Displayer = ({ children }: { children: React.ReactNode }) => {
+  const [device, setDevice] = useState<string>("");
+  const [deferredPrompt, setDeferredPrompt] = useState<any | null>(null);
+
+  useEffect(() => {
+    console.log(Bowser.parse(window.navigator.userAgent));
+
+    const agent = Bowser.parse(window.navigator.userAgent);
+
+    if (agent.platform.type === "mobile") {
+      if (agent.os.name === "iOS") {
+        if (agent.browser.name === "Safari") {
+          setDevice("safari");
+        } else {
+          setDevice("ios");
+        }
+      } else {
+        setDevice("android");
+
+        // Check for the beforeinstallprompt event
+        window.addEventListener("beforeinstallprompt", (event) => {
+          // Prevent the default behavior of the browser
+          event.preventDefault();
+          // Store the event for later use
+          setDeferredPrompt(event);
+        });
+      }
+    }
+  }, []);
+
+  const handleInstallClick = () => {
+    // Show the install prompt if available
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+
+      // Wait for the user to respond to the prompt
+      deferredPrompt.userChoice.then((choiceResult: any) => {
+        if (choiceResult.outcome === "accepted") {
+          console.log("User accepted the install prompt");
+        } else {
+          console.log("User dismissed the install prompt");
+        }
+
+        // Reset the deferredPrompt after user interaction
+        setDeferredPrompt(null);
+      });
+    }
+  };
+
   const [showTerms, setShowTerms] = useState(false);
 
   const connectionStatus = useConnectionStatus();
@@ -55,20 +110,78 @@ const Displayer = ({ children }: { children: React.ReactNode }) => {
     return (
       <>
         {!showTerms && (
-          <div className='absolute md:top-3 w-full  text-black font-medium text-center hidden md:block'>
-            <div className='flex justify-center items-center '>
-              <p className='bg-violet-300 py-2 w-full md:w-fit md:rounded-full px-10'>
-                Visit dappbase.elons.dev on mobile to install the app.
-              </p>
+          <>
+            <div className='absolute md:top-3 w-full  text-black font-medium text-center hidden md:block'>
+              <div className='flex justify-center items-center '>
+                <p className='bg-violet-300 py-2 w-full md:w-fit md:rounded-full px-10'>
+                  Visit dappbase.elons.dev on mobile to install the app.
+                </p>
+              </div>
             </div>
-          </div>
+            {device && (
+              <div className='absolute w-screen h-screen  '>
+                <div className='flex justify-center items-center h-screen backdrop-blur-sm'>
+                  <div className='p-6 max-w-xs bg-background/80 border shadow-lg rounded-xl flex flex-col items-center gap-3'>
+                    <TabletSmartphone className='w-10 h-10 text-violet-300' />
+                    <h2 className='font-medium text-neutral-200'>
+                      {device === "safari" && "Add To Home Screen"}
+                      {device === "android" && "Install App"}
+                      {device === "ios" && "Wrong Browser Detected"}
+                    </h2>
+                    <p className='text-center text-neutral-400'>
+                      To install the app, you need to add this website to your
+                      homescreen.
+                    </p>
+
+                    {device === "safari" && (
+                      <div className='text-neutral-300'>
+                        <ul>
+                          <li className='flex items-center gap-3'>
+                            <Share /> Tap the Share Icon
+                          </li>
+                          <li className='flex items-center gap-3 mt-3'>
+                            <PlusSquare /> Tap <b>Add to Home Screen</b>
+                          </li>
+                          <li className='flex items-center gap-3 mt-3'>
+                            <Zap /> Open DAppBolt from the App
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                    {device === "android" && (
+                      <Button
+                        onClick={handleInstallClick}
+                        className='bg-violet-300 hover:bg-violet-200 rounded-full w-full'
+                      >
+                        Install
+                      </Button>
+                    )}
+                    {device === "ios" && (
+                      <p className='text-center text-neutral-400'>
+                        Please open in Safari to install this app. Learn more
+                        about progressive web apps{" "}
+                        <Link
+                          className='underline underline-offset-1'
+                          href={
+                            "https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/What_is_a_progressive_web_app"
+                          }
+                        >
+                          here
+                        </Link>
+                        .
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+          </>
         )}
         <div className=' p-8 h-screen grid grid-rows-2  w-full  rounded-xl'>
           {!showTerms ? (
             <>
               <div className='flex flex-col justify-center items-center'>
                 <div className='flex gap-1 items-center justify-center  w-full'>
-                  <Zap className='w-7 h-7 rotate-12 text-violet-300' />
                   <p className='text-3xl font-extralight'>DApp</p>
 
                   <p className='text-3xl font-semibold'>BOLT</p>
