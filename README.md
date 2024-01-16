@@ -6,6 +6,7 @@ Get your client id from [Thirdweb dashboard](https://thirdweb.com/dashboard/sett
 
 ## FEATURES:
 
+- install to homescreen prompts depending on browser / device
 - Simple Signup with Google/Apple/Guest
 - Embedded Wallets (Powered by Thirdweb)
 - Easily Deposit ETH from connected wallets / Base wallets / Credit cards
@@ -16,7 +17,6 @@ Get your client id from [Thirdweb dashboard](https://thirdweb.com/dashboard/sett
 
 ## TODO:
 
-- create install to homescreen prompts depending on browser / device
 - deposit with credit card
 
 ## Getting Started

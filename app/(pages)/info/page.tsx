@@ -21,7 +21,22 @@ export default function InfoPage() {
           <br />
           Feel free to fork this repo and build your own PWA:
         </p>
-        <Link href='https://github.com/elonsdev/DAppBolt'>GITHUB</Link>
+        <Link
+          className='underline underline-offset-1'
+          href='https://github.com/elonsdev/DAppBolt'
+        >
+          GITHUB
+        </Link>
+
+        <h4 className='text-neutral-300 mt-5 text-xl'>F.A.Q.</h4>
+        <p className='text-neutral-400 mt-2 font-bold text-lg'>
+          How long does a deposit take?
+        </p>
+        <p className='text-neutral-400'>
+          Deposits into DAppBolt take between 1 - 3 minutes. If you have not yet
+          received your deposit after this time, please contact us and we will
+          check the bridge contract.
+        </p>
       </div>
     </main>
   );

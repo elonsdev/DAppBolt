@@ -1,22 +1,31 @@
 import {
-  useAccount,
-  useBalance,
-  useDisconnect,
   useWriteContract,
   useWaitForTransactionReceipt,
+  useSwitchChain,
+  useChainId,
 } from "wagmi";
-import abi from "./abi.json";
+
 import { Button } from "../components/ui/button";
+import { useAddress } from "@thirdweb-dev/react";
+import { useEffect } from "react";
 
 export function Account({ depositAmount }: any) {
+  const address = useAddress();
   const { data: hash, isPending, writeContract } = useWriteContract();
 
-  console.log(depositAmount.depositAmount);
+  const chainId = useChainId();
+  const { chains, switchChain } = useSwitchChain();
+
+  useEffect(() => {
+    if (chainId !== 1) {
+      switchChain({ chainId: 1 });
+    }
+  }, []);
 
   const depositer = async () => {
     console.log("deposit");
     writeContract({
-      address: "0xfd0Bf71F60660E2f608ed56e1659C450eB113120",
+      address: "0x3154Cf16ccdb4C6d922629664174b904d80F2C35",
       abi: [
         {
           inputs: [
@@ -32,7 +41,7 @@ export function Account({ depositAmount }: any) {
       ],
       functionName: "depositETHTo",
       value: BigInt(depositAmount.depositAmount * 1000000000000000000),
-      args: ["0xb249E162ed44061b195Ed72C3353563A5101d1a1", 0, ""],
+      args: [address, 0, ""],
     });
   };
 

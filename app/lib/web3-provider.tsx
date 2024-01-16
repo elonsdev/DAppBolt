@@ -14,7 +14,7 @@ import {
 
 import Bowser from "bowser";
 
-import { Base, BaseGoerli, BaseSepoliaTestnet } from "@thirdweb-dev/chains";
+import { Base, BaseSepoliaTestnet } from "@thirdweb-dev/chains";
 
 import {
   ArrowBigLeft,

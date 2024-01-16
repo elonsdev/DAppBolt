@@ -84,12 +84,12 @@ export function DepositInfo() {
         <DialogHeader>
           <DialogTitle>Deposit</DialogTitle>
           <DialogDescription>
-            Deposit {chain?.testnet ? `Testnet ETH` : `ETH`} into your DappBolt
-            account.
+            Deposit {chain?.testnet ? `Testnet Sepolia ETH` : `ETH`} into your
+            DappBolt account.
           </DialogDescription>
         </DialogHeader>
 
-        {/*  {chain?.testnet ? (
+        {chain?.testnet ? (
           <div className=''>
             <p className='text-sm text-neutral-400 text-center'>
               The {chain?.name} is a place to play around without any real
@@ -98,7 +98,7 @@ export function DepositInfo() {
               <br />
             </p>
             <p className='mt-4 text-neutral-300'>Step 1.</p>
-            <div className='flex justify-between text-neutral-400'>
+            <div className='flex justify-between text-neutral-400 cursor-pointer'>
               <p>Tap your address:</p>
               <p onClick={handleCopy}>
                 {copied ? (
@@ -113,102 +113,104 @@ export function DepositInfo() {
               </p>
             </div>
             <p className='mt-4 text-neutral-300'>Step 2.</p>
-            <Link href='https://basefaucet.com/'>
+            <Link target='_blank' href='https://basefaucet.com/'>
               <Button
                 className='w-full mt-1 text-neutral-400 rounded-full'
                 variant={"outline"}
               >
-                GET TESTNET ETH
+                Get BASE Testnet Sepolia ETH
               </Button>
             </Link>
           </div>
-        ) : ( */}
-        <>
-          <div className='w-full'>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button className='w-full rounded-full bg-violet-300 hover:bg-violet-200'>
-                  From ETH Blockchain
-                </Button>
-              </DialogTrigger>
-              <DialogContent className='rounded-3xl'>
-                <DialogHeader>
-                  <DialogTitle>Deposit ETH</DialogTitle>
-                  <DialogDescription>
-                    Deposit ETH from Ethereum into your DAppBolt account.
-                  </DialogDescription>
-                </DialogHeader>
+        ) : (
+          <>
+            <div className='w-full'>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className='w-full rounded-full bg-violet-300 hover:bg-violet-200'>
+                    From ETH Blockchain
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className='rounded-3xl'>
+                  <DialogHeader>
+                    <DialogTitle>Deposit ETH</DialogTitle>
+                    <DialogDescription>
+                      Deposit ETH from Ethereum into your DAppBolt account.
+                    </DialogDescription>
+                  </DialogHeader>
 
-                <div className='w-full flex flex-col gap-3'>
-                  <Profile />
+                  <div className='w-full flex flex-col gap-3'>
+                    <Profile />
 
-                  <EthProfile />
+                    <EthProfile />
 
-                  <div className='flex flex-col gap-1'>
-                    <Input
-                      type='number'
-                      onChange={(value) => {
-                        setDepositAmount(value.target.value);
-                      }}
-                      className='rounded-full'
-                      placeholder='0'
-                    />
+                    <div className='flex flex-col gap-1'>
+                      <Input
+                        type='number'
+                        onChange={(value) => {
+                          setDepositAmount(value.target.value);
+                        }}
+                        className='rounded-full'
+                        placeholder='0'
+                      />
 
-                    <p className='self-end text-sm text-neutral-500'>
-                      Balance:{" "}
-                      {connectedBalance ? `${connectedBalance.formatted}` : `0`}{" "}
-                      ETH
+                      <p className='self-end text-sm text-neutral-500'>
+                        Balance:{" "}
+                        {connectedBalance
+                          ? `${connectedBalance.formatted}`
+                          : `0`}{" "}
+                        ETH
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className='w-full flex flex-col gap-2'>
+                    <ConnectWallet depositAmount={depositAmount} />
+                    <p className='text-center text-sm text-neutral-400'>
+                      DAppBolt balance: {balance?.displayValue} ETH
                     </p>
                   </div>
-                </div>
-
-                <div className='w-full flex flex-col gap-2'>
-                  <ConnectWallet depositAmount={depositAmount} />
-                  <p className='text-center text-sm text-neutral-400'>
-                    DAppBolt balance: {balance?.displayValue} ETH
-                  </p>
-                </div>
-              </DialogContent>
-            </Dialog>
-            <p className='text-xs text-neutral-500 mt-1'>
-              Visit https://dappbolt.io/wallet and login on any device that has
-              an external wallet installed.
-            </p>
-          </div>
-          <div className='w-full'>
-            <Button
-              onClick={handleCopy}
-              className='w-full rounded-full bg-violet-300 hover:bg-violet-200'
-            >
-              {copied ? (
-                <span className='ml-2 text-green-900 flex gap-2 items-center'>
-                  Copied {address?.slice(0, 5)}...{address?.slice(-5)}
-                  <Check className='w-4 h-4' />
-                </span>
-              ) : (
-                <span>From BASE Blockchain</span>
-              )}
+                </DialogContent>
+              </Dialog>
+              <p className='text-xs text-neutral-500 mt-1'>
+                Visit https://dappbolt.io/wallet and login on any device that
+                has an external wallet installed.
+              </p>
+            </div>
+            <div className='w-full'>
+              <Button
+                onClick={handleCopy}
+                className='w-full rounded-full bg-violet-300 hover:bg-violet-200'
+              >
+                {copied ? (
+                  <span className='ml-2 text-green-900 flex gap-2 items-center'>
+                    Copied {address?.slice(0, 5)}...{address?.slice(-5)}
+                    <Check className='w-4 h-4' />
+                  </span>
+                ) : (
+                  <span>From BASE Blockchain</span>
+                )}
+              </Button>
+              <p className='text-xs text-neutral-500 mt-1'>
+                Transfer ETH on the BASE Network to fund your DappBolt wallet
+                address.
+              </p>
+            </div>
+            <Button disabled className='rounded-full'>
+              From Card**
             </Button>
-            <p className='text-xs text-neutral-500 mt-1'>
-              Transfer ETH on the BASE Network to fund your DappBolt wallet
-              address.
-            </p>
-          </div>
-          <Button disabled className='rounded-full'>
-            From Card**
-          </Button>
-          <div>
-            <p className='text-xs text-neutral-500'>
-              ** We are currently working on credit card integration
-            </p>
-          </div>
-        </>
-        {/*  )} */}
+            <div>
+              <p className='text-xs text-neutral-500'>
+                ** We are currently working on credit card integration
+              </p>
+            </div>
+          </>
+        )}
 
         <DialogFooter>
           <Button
             className='rounded-full w-full bg-neutral-300 hover:bg-neutral-200'
-            onClick={() => switchChain(chain?.testnet ? 8453 : 84531)}
+            onClick={() => switchChain(chain?.testnet ? 8453 : 84532)}
           >
             {chain?.testnet ? "Switch to BASE Mainnet" : "Switch to Testnet"}
           </Button>
