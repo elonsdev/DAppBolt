@@ -78,7 +78,7 @@ export const Footer = () => {
       <div className='fixed bottom-0 left-0 grid grid-cols-3  w-full items-end justify-center bg-black md:hidden'>
         <Link
           href='./'
-          className='flex justify-center py-3 border-zinc-900 border items-center'
+          className='flex justify-center pt-4 pb-5  border-zinc-900 border items-center'
         >
           <Home
             className={`w-6 h-6 ${isCurrentPage("/") && "text-indigo-300"}`}
@@ -87,7 +87,7 @@ export const Footer = () => {
 
         <Link
           href='./info'
-          className='flex justify-center py-3 border-zinc-900 border items-center'
+          className='flex justify-center pt-4 pb-5 border-zinc-900 border items-center'
         >
           <Info
             className={`w-6 h-6 ${isCurrentPage("/info") && "text-indigo-300"}`}
@@ -96,7 +96,7 @@ export const Footer = () => {
 
         <Link
           href='./wallet'
-          className='flex justify-center py-3 border-zinc-900 border items-center'
+          className='flex justify-center pt-4 pb-5 border-zinc-900 border items-center'
         >
           <Wallet
             className={`w-6 h-6 ${
