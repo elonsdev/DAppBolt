@@ -62,6 +62,10 @@ const Displayer = ({ children }: { children: React.ReactNode }) => {
 
     const agent = Bowser.parse(window.navigator.userAgent);
 
+    if (window.matchMedia("(display-mode: standalone)").matches) {
+      return;
+    }
+
     if (agent.platform.type === "mobile") {
       if (agent.os.name === "iOS") {
         if (agent.browser.name === "Safari") {
