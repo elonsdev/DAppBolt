@@ -9,8 +9,8 @@ import WagmiRainbowProvider from "./lib/rainbow-wagmi-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DAppBolt",
-  description: "Opensource PWA built on BASE.",
+  title: process.env.NEXT_PUBLIC_APP_NAME,
+  description: process.env.NEXT_PUBLIC_APP_DESCRIPTION,
   generator: "Next.js",
   manifest: "/manifest.json",
   icons: [{ rel: "icon", url: "icon-192x192.png" }],

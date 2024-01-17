@@ -173,8 +173,8 @@ export function DepositInfo() {
                 </DialogContent>
               </Dialog>
               <p className='text-xs text-neutral-500 mt-1'>
-                Visit https://dappbolt.io/wallet and login on any device that
-                has an external wallet installed.
+                Visit {process.env.NEXT_PUBLIC_APP_URL}/wallet from desktop and
+                sign in to deposit.
               </p>
             </div>
             <div className='w-full'>

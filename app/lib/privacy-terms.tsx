@@ -8,24 +8,27 @@ export const PrivacyTerms = () => {
         Effective as of September 8, 2023.
         <br />
         <br />
-        We ("DAppBolt," "we", “us” or "our") operate DAppBolt, a decentralized
-        and transparent betting platform running on Base blockchain.
+        We ("{process.env.NEXT_PUBLIC_APP_NAME}," "we", “us” or "our") operate
+        {process.env.NEXT_PUBLIC_APP_NAME}, a decentralized and transparent
+        betting platform running on Base blockchain.
         <br />
         <br />
-        This Privacy Policy describes how DAppBolt processes personal
-        information that we collect through our digital or online properties or
-        services that link to this Privacy Policy (including DAppBolt and our
-        social media pages) as well as our marketing activities and other
-        activities described in this Privacy Policy (collectively, the
-        “Service”).{" "}
+        This Privacy Policy describes how {
+          process.env.NEXT_PUBLIC_APP_NAME
+        }{" "}
+        processes personal information that we collect through our digital or
+        online properties or services that link to this Privacy Policy
+        (including {process.env.NEXT_PUBLIC_APP_NAME} and our social media
+        pages) as well as our marketing activities and other activities
+        described in this Privacy Policy (collectively, the “Service”).{" "}
       </p>
       <h4 className='mt-4  font-semibold'>Personal Information</h4>
       <p className='text-sm'>
-        DAppBolt does not store any user information other than what is recorded
-        on-chain. DAppBolt uses Dynamic.xyz for wallet connections, which could
-        log information about you, your computer or mobile device, and your
-        interaction over time with the Service, our communications and other
-        online services.
+        {process.env.NEXT_PUBLIC_APP_NAME} does not store any user information
+        other than what is recorded on-chain. {process.env.NEXT_PUBLIC_APP_NAME}{" "}
+        uses Dynamic.xyz for wallet connections, which could log information
+        about you, your computer or mobile device, and your interaction over
+        time with the Service, our communications and other online services.
       </p>
       <h4 className='mt-4  font-semibold'>Age restriction</h4>
       <p className='text-sm'>
@@ -50,7 +53,7 @@ export const PrivacyTerms = () => {
         interactions with the Service and our business.
       </p>
       <h4 className='mt-4  font-semibold'>How to contact us</h4>
-      <p className='text-sm pb-20'>Email support@DAppBolt</p>
+      <p className='text-sm pb-20'>Email jonathan@elons.dev</p>
     </>
   );
 };
