@@ -13,7 +13,8 @@
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 0% 98%;
+    --primary: 252.5, 94.74%, 85.1%;
+    --primary-hover: 250.5, 95.24%, 91.76%;
     --primary-foreground: 0 0% 9%;
 
     --secondary: 0 0% 14.9%;
@@ -43,7 +44,8 @@
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 0% 98%;
+    --primary: 252.5, 94.74%, 85.1%;
+    --primary-hover: 250.5, 95.24%, 91.76%;
     --primary-foreground: 0 0% 9%;
 
     --secondary: 0 0% 14.9%;

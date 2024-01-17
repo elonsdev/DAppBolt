@@ -20,7 +20,7 @@ export function WalletInfo() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Badge className='flex  items-center gap-1 justify-center bg-violet-300 hover:bg-violet-200 mb-1 cursor-pointer'>
+        <Badge className='flex  items-center gap-1 justify-center bg-primary hover:bg-primary-hover mb-1 cursor-pointer'>
           {chain?.testnet ? "TESTNET" : "BASE"} <Info className='w-4 h-4' />
         </Badge>
       </DialogTrigger>
@@ -32,14 +32,14 @@ export function WalletInfo() {
 
         {chain?.testnet ? (
           <div className=''>
-            <p className='text-sm text-neutral-400 text-center'>
+            <p className='text-sm text-muted-foreground '>
               The {chain?.name} is a place to play around without any real
               funds. You can get ETH testnet coins for free and test our
               features before putting in any real money.
               <br />
             </p>
-            {/*  <p className='mt-4 text-neutral-300'>Step 1.</p>
-            <div className='flex justify-between text-neutral-400'>
+            {/*  <p className='mt-4 text-muted-foreground'>Step 1.</p>
+            <div className='flex justify-between text-muted-foreground'>
               <p>Tap your address:</p>
               <p onClick={handleCopy}>
                 {copied ? (
@@ -53,9 +53,9 @@ export function WalletInfo() {
                 )}
               </p>
             </div>
-            <p className='mt-4 text-neutral-300'>Step 2.</p>
+            <p className='mt-4 text-muted-foreground'>Step 2.</p>
             <Button
-              className='w-full mt-1 text-neutral-400 rounded-full'
+              className='w-full mt-1 text-muted-foreground rounded-full'
               variant={"outline"}
             >
               GET TESTNET ETH
@@ -63,7 +63,7 @@ export function WalletInfo() {
           </div>
         ) : (
           <div className=''>
-            <p className='text-sm text-neutral-400 text-center'>
+            <p className='text-sm text-muted-foreground '>
               The {chain?.name} chain is a Layer 2 blockchain built ontop of
               Ethereum and run by Coinbase.
               <br />
@@ -73,7 +73,7 @@ export function WalletInfo() {
         <div className=''></div>
         <DialogFooter>
           <Button
-            className='rounded-full w-full bg-violet-300 hover:bg-violet-200'
+            className='rounded-full w-full '
             onClick={() => switchChain(chain?.testnet ? 8453 : 84532)}
           >
             {chain?.testnet ? "Switch to BASE Mainnet" : "Switch to Testnet"}

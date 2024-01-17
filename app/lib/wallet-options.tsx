@@ -36,7 +36,7 @@ export function WalletOptions() {
     return (
       <Button
         onClick={() => connect({ connector: walletConnectConnector })}
-        className='rounded-full bg-violet-300 hover:bg-violet-200'
+        className='rounded-full '
       >
         Wallet Connect
       </Button>
@@ -44,7 +44,7 @@ export function WalletOptions() {
   } else {
     return filteredConnectors.map((connector) => (
       <Button
-        className='rounded-full bg-violet-300 hover:bg-violet-200'
+        className='rounded-full '
         key={connector.uid}
         onClick={() => connect({ connector })}
       >

@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <main className='flex min-h-screen flex-col max-w-lg mx-auto  px-4 pt-5'>
       <div className='flex items-center justify-between border-b py-3'>
-        <div className='flex gap-1 items-center text-transparent  bg-clip-text bg-gradient-to-r from-violet-200 to-violet-400'>
-          <Zap className='w-5 h-5 rotate-12 text-violet-300' />
+        <div className='flex gap-1 items-center text-primary'>
+          <Zap className='w-5 h-5 rotate-12 text-primary' />
           <p className='text-xl font-extralight'>DApp</p>
           <p className='text-xl font-semibold'>BOLT</p>
         </div>
@@ -26,7 +26,7 @@ export default function Home() {
                 alt='chain logo'
                 src='/base-100.png'
               />
-              <h4 className='text-neutral-300 text-sm font-semibold'>
+              <h4 className='text-foreground text-sm font-semibold'>
                 {Number(data.displayValue).toFixed(4)}
               </h4>
             </div>
@@ -36,7 +36,7 @@ export default function Home() {
         )}
       </div>
 
-      <div className='flex flex-col  gap-1 mt-5 text-neutral-400'>
+      <div className='flex flex-col  gap-1 mt-5 text-muted-foreground'>
         <p>
           Welcome to DappBolt, a boiler-plate for building a PWA on BASE.
           <br />

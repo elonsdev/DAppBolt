@@ -17,7 +17,7 @@ export const Profile = () => {
 
         <AvatarFallback>test</AvatarFallback>
       </Avatar>
-      <div className=' flex flex-col  gap-1 text-neutral-300'>
+      <div className=' flex flex-col  gap-1 text-muted-foreground'>
         <h4 className='cursor-default'>
           {walletConfig?.meta.name}
           {walletInstance?.connector.id === "local_walle" && "Guest"}

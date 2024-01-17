@@ -49,21 +49,21 @@ export function ExportWalletInfo() {
         </DialogHeader>
 
         <div className=''>
-          <p className='mt-4 text-neutral-300'>Step 1.</p>
-          <div className='flex justify-between text-neutral-400 text-sm'>
+          <p className='mt-4 text-foreground'>Step 1.</p>
+          <div className='flex justify-between text-muted-foreground text-sm'>
             <p>
               Follow our guide to transfer your account to your wallet of
               choice.
             </p>
           </div>
-          <p className='mt-4 text-neutral-300'>Step 2.</p>
-          <div className='flex justify-between text-neutral-400 text-sm'>
+          <p className='mt-4 text-foreground'>Step 2.</p>
+          <div className='flex justify-between text-muted-foreground text-sm'>
             <p>Copy your private key into your other wallet.</p>
           </div>
 
           <Button
             onClick={handleCopy}
-            className='w-full mt-5 text-neutral-400 rounded-full'
+            className='w-full mt-5 text-muted-foreground rounded-full'
             variant={"outline"}
           >
             {copied ? (
@@ -79,7 +79,7 @@ export function ExportWalletInfo() {
         <DialogFooter>
           <div>
             <p className='text-red-400'>WARNING</p>
-            <p className='text-neutral-300'>
+            <p className='text-muted-foreground'>
               Never share your private key with anyone! It controls your entire
               account.
             </p>

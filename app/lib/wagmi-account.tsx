@@ -55,18 +55,18 @@ export function Account({ depositAmount }: any) {
       <Button
         onClick={depositer}
         disabled={isPending}
-        className='rounded-full bg-violet-300 hover:bg-violet-200'
+        className='rounded-full '
       >
         {isPending ? "Confirming..." : "Deposit"}
       </Button>
 
       {isConfirming && (
-        <div className='text-neutral-400 text-sm text-center'>
+        <div className='text-muted-foreground text-sm text-center'>
           Waiting for confirmation...
         </div>
       )}
       {isConfirmed && (
-        <div className='text-neutral-400 text-sm'>
+        <div className='text-muted-foreground text-sm'>
           Transaction confirmed. Your ETH will be deposited in a few minutes.
           You may close this window while waiting for your deposit.
         </div>

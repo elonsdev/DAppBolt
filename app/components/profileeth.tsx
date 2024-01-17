@@ -14,7 +14,7 @@ export const EthProfile = () => {
         <AvatarFallback>eth</AvatarFallback>
       </Avatar>
       <div className='w-full flex justify-between items-center'>
-        <div className=' flex flex-col  gap-1 text-neutral-300'>
+        <div className=' flex flex-col  gap-1 text-muted-foreground'>
           <h4>
             {address ? `From Connected Wallet` : `From Ethereum Mainnet`}{" "}
           </h4>
@@ -34,7 +34,8 @@ export const EthProfile = () => {
         </div>
         {address && (
           <Button
-            className='rounded-full bg-neutral-300 hover:bg-neutral-200'
+            variant={"secondary"}
+            className='rounded-full '
             onClick={() => disconnect()}
           >
             Disconnect

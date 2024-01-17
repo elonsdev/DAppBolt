@@ -74,10 +74,10 @@ export function DepositInfo() {
     <Dialog>
       <DialogTrigger asChild>
         <div className='flex flex-col items-center justify-center cursor-pointer'>
-          <div className='rounded-full bg-violet-300 hover:bg-violet-200 m-2 p-4 '>
+          <div className='rounded-full bg-primary hover:bg-primary-hover m-2 p-4 '>
             <Upload className='text-black' />
           </div>
-          <p className='font-medium text-neutral-300'>Deposit</p>
+          <p className='font-medium text-foreground'>Deposit</p>
         </div>
       </DialogTrigger>
       <DialogContent className='rounded-3xl'>
@@ -91,14 +91,14 @@ export function DepositInfo() {
 
         {chain?.testnet ? (
           <div className=''>
-            <p className='text-sm text-neutral-400 text-center'>
+            <p className='text-sm text-muted-foreground text-center'>
               The {chain?.name} is a place to play around without any real
               funds. You can get ETH testnet coins for free and test our
               features before putting in any real money.
               <br />
             </p>
-            <p className='mt-4 text-neutral-300'>Step 1.</p>
-            <div className='flex justify-between text-neutral-400 cursor-pointer'>
+            <p className='mt-4 text-foreground'>Step 1.</p>
+            <div className='flex justify-between text-muted-foreground cursor-pointer'>
               <p>Tap your address:</p>
               <p onClick={handleCopy}>
                 {copied ? (
@@ -112,10 +112,10 @@ export function DepositInfo() {
                 )}
               </p>
             </div>
-            <p className='mt-4 text-neutral-300'>Step 2.</p>
+            <p className='mt-4 text-foreground'>Step 2.</p>
             <Link target='_blank' href='https://basefaucet.com/'>
               <Button
-                className='w-full mt-1 text-neutral-400 rounded-full'
+                className='w-full mt-1 text-muted-foreground rounded-full'
                 variant={"outline"}
               >
                 Get BASE Testnet Sepolia ETH
@@ -127,7 +127,7 @@ export function DepositInfo() {
             <div className='w-full'>
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button className='w-full rounded-full bg-violet-300 hover:bg-violet-200'>
+                  <Button className='w-full rounded-full'>
                     From ETH Blockchain
                   </Button>
                 </DialogTrigger>
@@ -154,7 +154,7 @@ export function DepositInfo() {
                         placeholder='0'
                       />
 
-                      <p className='self-end text-sm text-neutral-500'>
+                      <p className='self-end text-sm text-muted-foreground'>
                         Balance:{" "}
                         {connectedBalance
                           ? `${connectedBalance.formatted}`
@@ -166,22 +166,19 @@ export function DepositInfo() {
 
                   <div className='w-full flex flex-col gap-2'>
                     <ConnectWallet depositAmount={depositAmount} />
-                    <p className='text-center text-sm text-neutral-400'>
+                    <p className='text-center text-sm text-muted-foreground'>
                       DAppBolt balance: {balance?.displayValue} ETH
                     </p>
                   </div>
                 </DialogContent>
               </Dialog>
-              <p className='text-xs text-neutral-500 mt-1'>
+              <p className='text-xs text-muted-foreground mt-1'>
                 Visit {process.env.NEXT_PUBLIC_APP_URL}/wallet from desktop and
                 sign in to deposit.
               </p>
             </div>
             <div className='w-full'>
-              <Button
-                onClick={handleCopy}
-                className='w-full rounded-full bg-violet-300 hover:bg-violet-200'
-              >
+              <Button onClick={handleCopy} className='w-full rounded-full '>
                 {copied ? (
                   <span className='ml-2 text-green-900 flex gap-2 items-center'>
                     Copied {address?.slice(0, 5)}...{address?.slice(-5)}
@@ -191,7 +188,7 @@ export function DepositInfo() {
                   <span>From BASE Blockchain</span>
                 )}
               </Button>
-              <p className='text-xs text-neutral-500 mt-1'>
+              <p className='text-xs text-muted-foreground mt-1'>
                 Transfer ETH on the BASE Network to fund your DappBolt wallet
                 address.
               </p>
@@ -200,7 +197,7 @@ export function DepositInfo() {
               From Card**
             </Button>
             <div>
-              <p className='text-xs text-neutral-500'>
+              <p className='text-xs text-muted-foreground'>
                 ** We are currently working on credit card integration
               </p>
             </div>
@@ -209,7 +206,8 @@ export function DepositInfo() {
 
         <DialogFooter>
           <Button
-            className='rounded-full w-full bg-neutral-300 hover:bg-neutral-200'
+            variant={"secondary"}
+            className='rounded-full w-full '
             onClick={() => switchChain(chain?.testnet ? 8453 : 84532)}
           >
             {chain?.testnet ? "Switch to BASE Mainnet" : "Switch to Testnet"}

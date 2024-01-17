@@ -117,7 +117,7 @@ const Displayer = ({ children }: { children: React.ReactNode }) => {
           <>
             <div className='absolute md:top-3 w-full  text-black font-medium text-center hidden md:block'>
               <div className='flex justify-center items-center '>
-                <p className='bg-violet-300 py-2 w-full md:w-fit md:rounded-full px-10'>
+                <p className='bg-primary py-2 w-full md:w-fit md:rounded-full px-10'>
                   Visit dappbase.elons.dev on mobile to install the app.
                 </p>
               </div>
@@ -126,19 +126,19 @@ const Displayer = ({ children }: { children: React.ReactNode }) => {
               <div className='absolute w-screen h-screen  '>
                 <div className='flex justify-center items-center h-screen backdrop-blur-sm'>
                   <div className='p-6 max-w-xs bg-background/80 border shadow-lg rounded-xl flex flex-col items-center gap-3'>
-                    <TabletSmartphone className='w-10 h-10 text-violet-300' />
-                    <h2 className='font-medium text-neutral-200'>
+                    <TabletSmartphone className='w-10 h-10 text-primary' />
+                    <h2 className='font-medium text-foreground'>
                       {device === "safari" && "Add To Home Screen"}
                       {device === "android" && "Install App"}
                       {device === "ios" && "Wrong Browser Detected"}
                     </h2>
-                    <p className='text-center text-neutral-400'>
+                    <p className='text-center text-muted-foreground'>
                       To install the app, you need to add this website to your
                       homescreen.
                     </p>
 
                     {device === "safari" && (
-                      <div className='text-neutral-300'>
+                      <div className='text-muted-foreground'>
                         <ul>
                           <li className='flex items-center gap-3'>
                             <Share /> Tap the Share Icon
@@ -155,13 +155,13 @@ const Displayer = ({ children }: { children: React.ReactNode }) => {
                     {device === "android" && (
                       <Button
                         onClick={handleInstallClick}
-                        className='bg-violet-300 hover:bg-violet-200 rounded-full w-full'
+                        className='bg-primary  rounded-full w-full'
                       >
                         Install
                       </Button>
                     )}
                     {device === "ios" && (
-                      <p className='text-center text-neutral-400'>
+                      <p className='text-center text-muted-foreground'>
                         Please open in Safari to install this app. Learn more
                         about progressive web apps{" "}
                         <Link
@@ -190,7 +190,7 @@ const Displayer = ({ children }: { children: React.ReactNode }) => {
 
                   <p className='text-3xl font-semibold'>BOLT</p>
                 </div>
-                <p className='text-neutral-400 mt-3 text-sm text-center'>
+                <p className='text-muted-foreground mt-3 text-sm text-center'>
                   Opensource PWA built on BASE.
                 </p>
               </div>
@@ -220,7 +220,7 @@ const Displayer = ({ children }: { children: React.ReactNode }) => {
                 />
                 <p
                   onClick={() => setShowTerms(true)}
-                  className='text-xs text-neutral-500 cursor-pointer'
+                  className='text-xs text-muted-foreground cursor-pointer'
                 >
                   Check our privacy and terms →
                 </p>
@@ -250,7 +250,7 @@ const Displayer = ({ children }: { children: React.ReactNode }) => {
   if (connectionStatus === "connecting" || connectionStatus === "unknown") {
     return (
       <div className='w-screen h-screen flex justify-center items-center'>
-        <Zap className='w-20 h-20 animate-pulse text-violet-300' />
+        <Zap className='w-20 h-20 animate-pulse text-primary' />
       </div>
     );
   }

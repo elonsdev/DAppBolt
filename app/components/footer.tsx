@@ -27,12 +27,12 @@ export const Footer = () => {
         <Link href='./' className='flex gap-2  items-center'>
           <Home
             className={`w-6 h-6 ${
-              isCurrentPage("/") ? "text-indigo-300" : "text-neutral-300"
+              isCurrentPage("/") ? "text-primary" : "text-muted-foreground"
             }`}
           />
           <p
             className={` text-lg font-medium ${
-              isCurrentPage("/") ? "text-indigo-300" : "text-neutral-300"
+              isCurrentPage("/") ? "text-primary" : "text-muted-foreground"
             }`}
           >
             Dashboard
@@ -42,12 +42,12 @@ export const Footer = () => {
         <Link href='./info' className='flex  gap-2  items-center'>
           <Info
             className={`w-6 h-6 ${
-              isCurrentPage("/info") ? "text-indigo-300" : "text-neutral-300"
+              isCurrentPage("/info") ? "text-primary" : "text-muted-foreground"
             }`}
           />
           <p
             className={` text-lg font-semibold ${
-              isCurrentPage("/info") ? "text-indigo-300" : "text-neutral-300"
+              isCurrentPage("/info") ? "text-primary" : "text-muted-foreground"
             }`}
           >
             Info
@@ -56,12 +56,16 @@ export const Footer = () => {
         <Link href='./wallet' className='flex  gap-2  items-center'>
           <Wallet
             className={`w-6 h-6 ${
-              isCurrentPage("/wallet") ? "text-indigo-300" : "text-neutral-300"
+              isCurrentPage("/wallet")
+                ? "text-primary"
+                : "text-muted-foreground"
             }`}
           />
           <p
             className={` text-lg font-semibold ${
-              isCurrentPage("/wallet") ? "text-indigo-300" : "text-neutral-300"
+              isCurrentPage("/wallet")
+                ? "text-primary"
+                : "text-muted-foreground"
             }`}
           >
             Wallet
@@ -70,7 +74,7 @@ export const Footer = () => {
       </div>
       <Link
         href='https://x.com/elonsdev'
-        className='text-neutral-600 
+        className='text-muted
         absolute bottom-5 left-5 hidden md:block'
       >
         built by @elonsdev
@@ -78,30 +82,26 @@ export const Footer = () => {
       <div className='fixed bottom-0 left-0 grid grid-cols-3  w-full items-end justify-center bg-black md:hidden'>
         <Link
           href='./'
-          className='flex justify-center pt-4 pb-5  border-zinc-900 border items-center'
+          className='flex justify-center pt-4 pb-7  border-border border items-center'
         >
-          <Home
-            className={`w-6 h-6 ${isCurrentPage("/") && "text-indigo-300"}`}
-          />
+          <Home className={`w-6 h-6 ${isCurrentPage("/") && "text-primary"}`} />
         </Link>
 
         <Link
           href='./info'
-          className='flex justify-center pt-4 pb-5 border-zinc-900 border items-center'
+          className='flex justify-center pt-4 pb-7 border-border border items-center'
         >
           <Info
-            className={`w-6 h-6 ${isCurrentPage("/info") && "text-indigo-300"}`}
+            className={`w-6 h-6 ${isCurrentPage("/info") && "text-primary"}`}
           />
         </Link>
 
         <Link
           href='./wallet'
-          className='flex justify-center pt-4 pb-5 border-zinc-900 border items-center'
+          className='flex justify-center pt-4 pb-7 border-border border items-center'
         >
           <Wallet
-            className={`w-6 h-6 ${
-              isCurrentPage("/wallet") && "text-indigo-300"
-            }`}
+            className={`w-6 h-6 ${isCurrentPage("/wallet") && "text-primary"}`}
           />
         </Link>
       </div>

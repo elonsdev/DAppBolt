@@ -49,30 +49,27 @@ export default function Wallet() {
                   alt='chain logo'
                   src='/base-100.png'
                 />
-                <h4 className='text-neutral-300 text-sm font-semibold'>
+                <h4 className='text-foreground text-sm font-semibold'>
                   {Number(data.displayValue).toFixed(4)}
                 </h4>
               </div>
-              <p className='text-sm text-neutral-400 text-right'>
+              <p className='text-sm text-muted-foreground text-right'>
                 Wallet Balance
               </p>{" "}
             </>
           )}
         </div>
       </div>
-      <div className='bg-zinc-900 h-[1px]  w-full' />
+      <div className='bg-border h-[1px]  w-full' />
       <div className='w-full grid grid-cols-2  mb-5'>
         <DepositInfo />
         <WithdrawInfo />
       </div>
-      <div className='bg-zinc-900 h-[1px] w-full' />
+      <div className='bg-border h-[1px] w-full' />
       <div className='grid grid-cols-1 md:grid-cols-2  gap-5 md:gap-5 w-full'>
         <ExportWalletInfo />
 
-        <Button
-          className='bg-violet-300 hover:bg-violet-200 rounded-full px-10 w-full'
-          onClick={disconnect}
-        >
+        <Button className=' rounded-full px-10 w-full' onClick={disconnect}>
           Log out
         </Button>
       </div>
