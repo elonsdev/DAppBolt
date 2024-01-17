@@ -28,7 +28,7 @@ export function WalletOptions() {
     idsToFilter.includes(connector.id)
   );
 
-  const walletConnectConnector = connectors.find(
+  const walletConnectConnector: any = connectors.find(
     (connector) => connector.id === "walletConnect"
   );
 
