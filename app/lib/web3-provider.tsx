@@ -118,7 +118,8 @@ const Displayer = ({ children }: { children: React.ReactNode }) => {
             <div className='absolute md:top-3 w-full  text-black font-medium text-center hidden md:block'>
               <div className='flex justify-center items-center '>
                 <p className='bg-primary py-2 w-full md:w-fit md:rounded-full px-10'>
-                  Visit dappbase.elons.dev on mobile to install the app.
+                  Visit {process.env.NEXT_PUBLIC_APP_URL} on mobile to install
+                  the app.
                 </p>
               </div>
             </div>
@@ -147,7 +148,8 @@ const Displayer = ({ children }: { children: React.ReactNode }) => {
                             <PlusSquare /> Tap <b>Add to Home Screen</b>
                           </li>
                           <li className='flex items-center gap-3 mt-3'>
-                            <Zap /> Open DAppBolt from the App
+                            <Zap /> Open {process.env.NEXT_PUBLIC_APP_NAME} from
+                            the App
                           </li>
                         </ul>
                       </div>
