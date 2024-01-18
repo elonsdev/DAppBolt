@@ -38,7 +38,7 @@ export default function Home() {
 
       <div className='flex flex-col  gap-1 mt-5 text-muted-foreground'>
         <p>
-          Welcome to DappBolt, a boiler-plate for building a PWA on BASE.
+          Welcome to dustminer, a boiler-plate for building a PWA on BASE.
           <br />
           <br />
           This is a good place to start building your DApp.

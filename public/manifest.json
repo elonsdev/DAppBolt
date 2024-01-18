@@ -4,8 +4,8 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "DAppBolt",
-  "short_name": "DAppBolt",
+  "name": "dustminer",
+  "short_name": "dustminer",
   "description": "Opensource PWA built on BASE.",
   "icons": [
     {

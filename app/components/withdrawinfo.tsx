@@ -45,7 +45,7 @@ export function WithdrawInfo() {
         <DialogHeader>
           <DialogTitle>Withdraw ETH</DialogTitle>
           <DialogDescription>
-            Withdraw ETH from your DappBolt wallet to another wallet on Base.
+            Withdraw ETH from your dustminer wallet to another wallet on Base.
           </DialogDescription>
         </DialogHeader>
 

@@ -15,7 +15,7 @@ export default function InfoPage() {
 
       <div className='flex flex-col  gap-1 mt-5 text-muted-foreground'>
         <p>
-          DappBolt is a boiler-plate for building a PWA on BASE using the
+          dustminer is a boiler-plate for building a PWA on BASE using the
           Thirdweb react SDK and Wagmi.
           <br />
           <br />
@@ -23,7 +23,7 @@ export default function InfoPage() {
         </p>
         <Link
           className='underline underline-offset-1'
-          href='https://github.com/elonsdev/DAppBolt'
+          href='https://github.com/elonsdev/dustminer'
         >
           GITHUB
         </Link>
@@ -33,9 +33,9 @@ export default function InfoPage() {
           How long does a deposit take?
         </p>
         <p className='text-muted-foreground'>
-          Deposits into DAppBolt take between 1 - 3 minutes. If you have not yet
-          received your deposit after this time, please contact us and we will
-          check the bridge contract.
+          Deposits into dustminer take between 1 - 3 minutes. If you have not
+          yet received your deposit after this time, please contact us and we
+          will check the bridge contract.
         </p>
       </div>
     </main>
