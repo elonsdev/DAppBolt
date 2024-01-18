@@ -147,7 +147,7 @@ const Displayer = ({ children }: { children: React.ReactNode }) => {
                             <PlusSquare /> Tap <b>Add to Home Screen</b>
                           </li>
                           <li className='flex items-center gap-3 mt-3'>
-                            <Zap /> Open dustminer from the App
+                            <Zap /> Open DAppBolt from the App
                           </li>
                         </ul>
                       </div>

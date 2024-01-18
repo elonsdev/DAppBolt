@@ -85,7 +85,7 @@ export function DepositInfo() {
           <DialogTitle>Deposit</DialogTitle>
           <DialogDescription>
             Deposit {chain?.testnet ? `Testnet Sepolia ETH` : `ETH`} into your
-            dustminer account.
+            DappBolt account.
           </DialogDescription>
         </DialogHeader>
 
@@ -135,7 +135,7 @@ export function DepositInfo() {
                   <DialogHeader>
                     <DialogTitle>Deposit ETH</DialogTitle>
                     <DialogDescription>
-                      Deposit ETH from Ethereum into your dustminer account.
+                      Deposit ETH from Ethereum into your DAppBolt account.
                     </DialogDescription>
                   </DialogHeader>
 
@@ -167,7 +167,7 @@ export function DepositInfo() {
                   <div className='w-full flex flex-col gap-2'>
                     <ConnectWallet depositAmount={depositAmount} />
                     <p className='text-center text-sm text-muted-foreground'>
-                      dustminer balance: {balance?.displayValue} ETH
+                      DAppBolt balance: {balance?.displayValue} ETH
                     </p>
                   </div>
                 </DialogContent>
@@ -189,7 +189,7 @@ export function DepositInfo() {
                 )}
               </Button>
               <p className='text-xs text-muted-foreground mt-1'>
-                Transfer ETH on the BASE Network to fund your dustminer wallet
+                Transfer ETH on the BASE Network to fund your DappBolt wallet
                 address.
               </p>
             </div>
